@@ -1,0 +1,45 @@
+$pic-size: 35vmin;
+$box-size: 100vmin;
+$period: 30s;
+
+.pics-container {
+  position: absolute;
+  top: $box-size * -0.3;
+  right: $box-size * -0.3;
+}
+
+.orbit-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vmin;
+  height: 100vmin;
+}
+
+.orbit {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  animation: spin-right $period linear infinite;
+}
+
+.pic-container {
+  animation: pic-spin infinite $period linear;
+  width: $pic-size;
+  height: $pic-size;
+}
+
+@keyframes pic-spin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes spin-right {
+  100% {
+    transform: rotate(360deg);
+  }
+}
