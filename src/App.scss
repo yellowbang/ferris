@@ -15,9 +15,11 @@
 }
 
 .left-container {
-  background-color: yellow;
+
+  .ReactTable {
+    width: 90%;
+  }
 }
 
 .right-container {
-  background-color: red;
 }
