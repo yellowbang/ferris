@@ -1,6 +1,13 @@
-$pic-size: 18vmin;
+$pic-size: 26vmin;
+$pic-div-size: 23vmin;
 $box-size: 60vmin;
 $period: 30s;
+$HeightToWidthRation: 15/9;
+$view-pic-container-width: 23vw;
+$view-pic-container-height: $view-pic-container-width * $HeightToWidthRation;
+$view-pic-inner-padding: 2vw;
+$view-pic-width: $view-pic-container-width;
+$view-pic-height: $view-pic-width;
 
 .app {
   width: 100vw;
@@ -13,6 +20,10 @@ $period: 30s;
   position: absolute;
   top: $box-size * -0.5;
   right: $box-size * -0.6;
+  width: 100vw;
+  height: 130vh;
+  overflow: hidden;
+  color: #d8d800
 }
 
 .orbit-container {
@@ -34,11 +45,20 @@ $period: 30s;
   animation: pic-spin infinite $period linear;
   width: $pic-size;
   height: $pic-size;
-  padding: 4vmin;
+  border-radius: $pic-size/2;
   display: flex;
   align-items: center;
+  justify-content: center;
   position: absolute;
   top: 0;
+  overflow: hidden;
+
+  div {
+    overflow: hidden;
+    width: $pic-div-size;
+    height: $pic-div-size;
+    border-radius: $pic-div-size/2;
+  }
 }
 
 @keyframes pic-spin {
@@ -53,6 +73,30 @@ $period: 30s;
 @-webkit-keyframes spin-right {
   100% {
     transform: rotate(360deg);
+  }
+}
+
+.view-pic-container {
+  z-index:2;
+  position: absolute;
+  bottom: 5vmin;
+  left: 5vmin;
+  width: $view-pic-container-width;
+  height: $view-pic-container-height;
+  padding: $view-pic-inner-padding;
+  background-color: #ededed;
+  box-shadow: 0 0 30px lightgray;
+  border-radius: 12px;
+
+  .view-pic {
+    margin-bottom: $view-pic-inner-padding / 2;
+    border: 1px solid lightgray;
+    width: $view-pic-width;
+    height: $view-pic-height;
+  }
+
+  .view-pic-descr {
+    font-size: $view-pic-width * 0.05;
   }
 }
 

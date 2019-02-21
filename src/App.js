@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
+import wenquan from './photos/wenquan.jpg';
 import './App.scss';
 
 class App extends Component {
@@ -14,7 +15,6 @@ class App extends Component {
         circlePosition = circlePosition + 'vmin';
         strokeWidth = strokeWidth + 'vmin';
 
-
         for (let i = 0; i < n; i++) {
             let deg = 360 / n * i;
             let picDeg = -deg;
@@ -22,10 +22,10 @@ class App extends Component {
                 <div className="orbit-container" key={"pic" + i} style={{transform: "rotate(" + deg + "deg)"}}>
                     <div className="orbit">
                         <svg width={"50vmin"} height={"50vmin"} style={{position: 'absolute'}}>
-                            <line x1="21vmin" y1="21vmin" x2="50vmin" y2="50vmin" stroke-width={strokeWidth}
-                                  style={{stroke: "rgb(33,0,0)"}}
+                            <line x1="21vmin" y1="21vmin" x2="50vmin" y2="50vmin" strokeWidth={strokeWidth}
+                                  style={{stroke: "#cecece"}}
                                   fill="blue" width="30px"/>
-                            <circle cx={circlePosition} cy={circlePosition} r={circlePosition} fill="white"/>
+                            <circle cx={circlePosition} cy={circlePosition} r={circlePosition} fill="#dedede"/>
                         </svg>
                         <div className="pic-container">
                             <div style={{transform: "rotate(" + picDeg + "deg)"}}>
@@ -42,7 +42,7 @@ class App extends Component {
                         <svg width={"50vmin"} height={"50vmin"} style={{position: 'absolute'}}>
                             <circle
                                 className="donut-segment" cx={circlePosition} cy={circlePosition} r={circleSize}
-                                fill="transparent" stroke="#ce4b99" stroke-width={strokeWidth}/>
+                                fill="transparent" stroke="#cfcf55" strokeWidth={strokeWidth}/>
                         </svg>
                     </div>
                 </div>
@@ -55,6 +55,10 @@ class App extends Component {
                 <div className="twinkling"/>
                 <div className="pics-container">
                     {pics}
+                </div>
+                <div className="view-pic-container">
+                    <img className="view-pic" src={logo}/>
+                    <span className="view-pic-descr">jeaoajwifowjiofjowjioafjwiojfewiofjioaw</span>
                 </div>
             </div>
         );
