@@ -3,7 +3,7 @@ import './App.scss';
 import ReactTable from "react-table";
 import {LineChart} from "react-d3-components";
 import 'react-table/react-table.css';
-import DATA from "./Data";
+import Data from './Data.json';
 
 const COLUMNS = [
     {
@@ -24,21 +24,25 @@ const COLUMNS = [
 
 class App extends Component {
 
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
-            chartData: [{
-                label: '',
-                values: [{x: 0, y: 0}]
-            }]
+            chartData: [
+                {
+                    label: '',
+                    values: [{x: 0, y: 0}]
+                }
+            ]
         };
     }
 
     populateChart = (rowInfo) => {
-        let chartData = [{
-            label: rowInfo.portId,
-            values: rowInfo.temps,
-        }];
+        let chartData = [
+            {
+                label: rowInfo.portId,
+                values: rowInfo.temps,
+            }
+        ];
         this.setState({
             chartData
         })
@@ -51,12 +55,14 @@ class App extends Component {
             <div className="app">
                 <div className="session-container left-container">
                     <ReactTable
-                        data={DATA}
+                        data={Data}
                         columns={COLUMNS}
                         getTdProps={(state, rowInfo) => {
                             return {
                                 onClick: () => {
-                                    me.populateChart(rowInfo.original);
+                                    if (rowInfo) {
+                                        me.populateChart(rowInfo.original);
+                                    }
                                 }
                             };
                         }}
