@@ -1,7 +1,7 @@
 $pic-size: 26vmin;
 $pic-div-size: 23vmin;
 $box-size: 60vmin;
-$period: 30s;
+$period: 60s;
 $HeightToWidthRation: 15/9;
 $view-pic-container-width: 23vw;
 $view-pic-container-height: $view-pic-container-width * $HeightToWidthRation;
@@ -53,12 +53,17 @@ $view-pic-height: $view-pic-width;
   top: 0;
   overflow: hidden;
 
-  div {
+  > div {
     overflow: hidden;
     width: $pic-div-size;
     height: $pic-div-size;
     border-radius: $pic-div-size/2;
   }
+}
+
+.donut-segment {
+  z-index: 99;
+  cursor: pointer;
 }
 
 @keyframes pic-spin {
