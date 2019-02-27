@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import photos from './photos/photo';
 import './App.scss';
-import zuichibi from './sound/zuichibi.mp3';
-import weiyi from './sound/weiyi.mp3';
-const MUSICS = [zuichibi, weiyi];
+import Audio from './Audio';
 const TOTAL_CIRCLE = photos.length;
 const PHOTO_SWITCH_DELAY = 10000;
 
@@ -94,7 +92,6 @@ class App extends Component {
         const selectedPhoto = photos[this.state.selectedPhotoIndex % TOTAL_CIRCLE];
         return (
             <div className="app">
-                {/*<audio src={MUSICS[this.state.backgroundMusicIndex % 2]} controls autoPlay onEnded={this.nextSong}></audio>*/}
                 <div className="stars"/>
                 <div className="twinkling"/>
                 <div className="pics-container">
@@ -104,6 +101,7 @@ class App extends Component {
                     <img className="view-pic" src={selectedPhoto.src}/>
                     <span className="view-pic-descr">{selectedPhoto.descr}</span>
                 </div>
+                <Audio/>
             </div>
         );
     }

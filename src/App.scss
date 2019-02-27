@@ -62,8 +62,14 @@ $view-pic-height: $view-pic-width;
 }
 
 .donut-segment {
-  z-index: 99;
   cursor: pointer;
+}
+
+.audio-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 6;
 }
 
 @keyframes pic-spin {
