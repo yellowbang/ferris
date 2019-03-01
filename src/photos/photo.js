@@ -1,6 +1,7 @@
 import wenquan from './wenquan.jpg';
 import jiehun from './jiehun.jpeg';
 import kayak from './kayak.jpeg';
+import funnyFace from './funnyFace.jpeg';
 
 export default [
     {
@@ -13,6 +14,10 @@ export default [
     },
     {
         src: kayak,
+        descr: '第一次泡温泉3',
+    },
+    {
+        src: funnyFace,
         descr: '第一次泡温泉3',
     },
 ]
