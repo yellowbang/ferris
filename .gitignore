@@ -6,8 +6,6 @@
 .pnp.js
 .ideas/
 .idea/
-scripts/
-package-lock.json
 
 # testing
 /coverage
