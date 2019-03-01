@@ -210,7 +210,7 @@ class Audio extends Component {
                     {notePlayer1}
                     {notePlayer2}
                 </div>
-                {/*<audio src={MUSICS[this.state.backgroundMusicIndex % 2]} controls autoPlay onEnded={this.nextSong}/>*/}
+                <audio src={MUSICS[this.state.backgroundMusicIndex % 2]} controls autoPlay onEnded={this.nextSong}/>
             </div>
         );
     }
