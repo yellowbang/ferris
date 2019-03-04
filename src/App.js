@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import photos from './photos/photo';
 import './App.scss';
 import Audio from './Audio';
 const TOTAL_CIRCLE = photos.length;
-const PHOTO_SWITCH_DELAY = 10000;
+const PHOTO_SWITCH_DELAY = 25100;
 
 class App extends Component {
     constructor(props) {

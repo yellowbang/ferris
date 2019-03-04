@@ -41,7 +41,7 @@ import _5re from './sound/5re.wav';
 import _5me from './sound/5me.wav';
 
 const MUSICS = [zuichibi, zuichibi];
-const NOTES = 'uytwe trtyrw uytwe opouyu yuopoty yuoport e iuiouty uytwe trtyrw uytwe opouyu osapouy ous uiuyuouyu ertouyt';
+const NOTES = 'uytwe trtyrw uytwe opouyu yuopoty yuoport e iuiouty uytwe trtyrw uytwe opouoo osapouy ous uiuyuouyu pootuytt';
 
 class Audio extends Component {
     constructor(props) {
@@ -206,7 +206,7 @@ class Audio extends Component {
 
         return (
             <div className="audio-container">
-                <div style={{opacity: 0.3}}>
+                <div style={{opacity: 0}}>
                     {notePlayer1}
                     {notePlayer2}
                 </div>
