@@ -102,12 +102,13 @@ $view-pic-height: $view-pic-width;
   .view-pic {
     margin-bottom: $view-pic-inner-padding / 2;
     border: 1px solid lightgray;
+    border-radius: 5px;
     width: $view-pic-width;
     height: $view-pic-height;
   }
 
   .view-pic-descr {
-    font-size: $view-pic-width * 0.05;
+    font-size: $view-pic-width * 0.1;
   }
 }
 
