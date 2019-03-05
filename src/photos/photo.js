@@ -1,6 +1,6 @@
 import banliang from './banliang.jpg';
 import eshit from './eshit.jpg';
-import firstDating from './firstDating.jpg';
+import ferris from './ferris.jpeg';
 import jiehun from './jiehun.jpeg';
 import kayak from './kayak.jpeg';
 import mianmo from './mianmo.jpeg';
@@ -13,12 +13,12 @@ import zhoulianjinian from './zhoulianjinian.jpeg';
 
 export default [
     {
-        src: firstDating,
-        descr: '同你约会的次数唔多。每次可以同你二人世界我都好真心，好 enjoy，',
+        src: ferris,
+        descr: '主题的灵感是黎自我地上次坐的大型摩天轮。自从上次坐摩天轮的时候我就想写一个网站比你，宜家终于有机会。',
     },
     {
         src: shou,
-        descr: '好中意你衣个又瘦又清纯的样子。不过虽然你宜家肥到可能连家姐都唔认得，不过我依然甘中意你。',
+        descr: '好中意你衣个又瘦又清纯的样子。虽然你宜家肥到可能连家姐都唔认得，不过我依然甘中意你。',
     },
     {
         src: mianmo,
@@ -42,7 +42,7 @@ export default [
     },
     {
         src: kayak,
-        descr: '妹妹你坐床头，哥哥在岸上走。你扮出痕力洼船的样几奸诈。我地好耐都无一齐运动啦。',
+        descr: '你扮出痕力洼船的样几奸诈。你上次话好想每年都去 kayak 一次的时候，我有一种老怀安慰的感动。讲真，我地好耐都无一齐运动啦。',
     },
     {
         src: eshit,
@@ -54,10 +54,10 @@ export default [
     },
     {
         src: jiehun,
-        descr: '确认过眼神，你是个小肥人。虽然你又矮又开始肥，久唔久又会好似焖姜甘。但我依然甘爱你。',
+        descr: '确认过眼神，你是个小肥人。虽然你又矮又开始肥，久唔久又会唔知点解成个焖姜甘。但我依然甘爱你。',
     },
     {
         src: zhoulianjinian,
-        descr: '同你一齐的总有特别的日子。今年的周年纪念是史上最短周年纪念，短得黎几得意。同你一齐的每一日都系值得纪念的日子。',
+        descr: '同你一齐的总有特别的日子。今年的周年纪念是史上最短周年纪念，短得黎几得意几特别。同你一齐的每一日都系值得纪念的日子。',
     },
 ]
