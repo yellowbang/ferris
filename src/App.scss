@@ -3,9 +3,9 @@ $pic-div-size: 23vmin;
 $box-size: 60vmin;
 $period: 60s;
 $HeightToWidthRation: 15/9;
-$view-pic-container-width: 23vw;
+$view-pic-container-width: 23vmax;
 $view-pic-container-height: $view-pic-container-width * $HeightToWidthRation;
-$view-pic-inner-padding: 2vw;
+$view-pic-inner-padding: 2vmax;
 $view-pic-width: $view-pic-container-width;
 $view-pic-height: $view-pic-width;
 
@@ -22,7 +22,6 @@ $view-pic-height: $view-pic-width;
   right: $box-size * -0.6;
   width: 100vw;
   height: 130vh;
-  overflow: hidden;
   color: #d8d800
 }
 
@@ -113,7 +112,9 @@ $view-pic-height: $view-pic-width;
   }
 
   .view-pic-descr {
-    font-size: $view-pic-width * 0.09;
+    height: $view-pic-container-height - $view-pic-height - $view-pic-inner-padding;
+    overflow-y: auto;
+    font-size: $view-pic-width * 0.08;
   }
 }
 

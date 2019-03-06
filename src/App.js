@@ -98,7 +98,7 @@ class App extends Component {
                 </div>
                 <div className="view-pic-container">
                     <img className="view-pic" src={selectedPhoto.src}/>
-                    <span className="view-pic-descr">{selectedPhoto.descr}</span>
+                    <div className="view-pic-descr">{selectedPhoto.descr}</div>
                 </div>
                 <Audio/>
             </div>
