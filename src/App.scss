@@ -1,5 +1,25 @@
 .app {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    .guest-input {
+        display: flex;
+        flex-direction: row;
+
+        .guest-input-column {
+            flex: 1;
+        }
+    }
+}
+
+.field-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    .number {
+        width: 30px;
+        text-align: center;
+    }
 }
