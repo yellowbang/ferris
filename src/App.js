@@ -1,25 +1,60 @@
 import React, { Component } from 'react';
+import util from './util';
 import Field from './Field';
 import './App.scss';
 
-const COLORS = ['#ff0000de', '#03a9f4', '#008000a1'];
+const COLORS = [util.red, util.blue, util.green];
 const COLOR_INDEXES = [0, 0, 1, 1, 2, 2, 0, 0, 1, 1, 2, 0, 0, 1, 1, 2, 2, 0, 0, 1, 2, 2, 0, 0, 1, 1, 2, 2, 0, 0, 1, 2, 2, 0, 0, 1, 1, 2, 2, 0, 1, 1, 2, 2, 0, 0, 1, 1, 2];
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            selectedNumber: 0,
             total: 0,
             inputs: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         };
     }
 
-    onFieldChange = (index, value) => {
+    onTotalChange = (index, value) => {
         let inputs = this.state.inputs.concat();
         inputs[index] = value;
+        let total = inputs.reduce((partial_sum, a) => partial_sum + a);
         this.setState({
-            inputs
+            inputs,
+            total
         })
+    };
+
+    onRadioChange = (number) => {
+        this.setState({
+            selectedNumber: number
+        })
+    };
+
+    addField = (i) => {
+        const me = this;
+        return (
+            <Field
+                key={i}
+                index={i}
+                onTotalChange={me.onTotalChange}
+                onRadioChange={me.onRadioChange}
+                number={i + 1}
+                isChecked={this.state.selectedNumber === i + 1}
+                backgroundColor={COLORS[COLOR_INDEXES[i]]}
+            />
+        )
+    };
+
+    calculateBenefit = () => {
+        const me = this;
+        const state = me.state;
+        let serviceFee = state.total * 0.1;
+        let numberBenefit = state.total - state.inputs[state.selectedNumber - 1] * 44 - serviceFee || 0;
+        let colorBenefit = state.total - state.inputs[state.selectedNumber - 1] * 44 - serviceFee;
+        let animalBenefit = state.total - state.inputs[state.selectedNumber - 1] * 44 - serviceFee;
+        return { numberBenefit, colorBenefit, animalBenefit }
     };
 
     componentDidMount() {
@@ -28,38 +63,37 @@ class App extends Component {
     render() {
 
         const me = this;
-        let i = 0;
+        let i = 0, j = 0, k = 0;
         let fields1 = [];
         let fields2 = [];
         for (i; i < 25; i++) {
             fields1.push(
-                <Field
-                    key={i}
-                    index={i}
-                    onChange={me.onFieldChange}
-                    number={i+1}
-                    backgroundColor={COLORS[COLOR_INDEXES[i]]}
-                />
+                me.addField(i)
             )
         }
         for (i; i < COLOR_INDEXES.length; i++) {
             fields2.push(
-                <Field
-                    key={i}
-                    index={i}
-                    onChange={me.onFieldChange}
-                    number={i+1}
-                    backgroundColor={COLORS[COLOR_INDEXES[i]]}
-                />
+                me.addField(i)
             )
         }
 
-        const sum = this.state.inputs.reduce((partial_sum, a) => partial_sum + a);
+        const { numberBenefit, colorBenefit, animalBenefit } = me.calculateBenefit();
 
         return (
             <div className="app">
                 <div className="result-header">
-                    {sum}
+                    <div className="header-item">
+                        总投注: {me.state.total}
+                    </div>
+                    <div className="header-item">
+                        号码收益: {numberBenefit}
+                    </div>
+                    {/*<div className="header-item">*/}
+                        {/*颜色收益: {numberBenefit}*/}
+                    {/*</div>*/}
+                    {/*<div className="header-item">*/}
+                        {/*生肖收益: {numberBenefit}*/}
+                    {/*</div>*/}
                 </div>
                 <div className="guest-input">
                     <div className="guest-input-column">
@@ -69,7 +103,6 @@ class App extends Component {
                         {fields2}
                     </div>
                 </div>
-
             </div>
         );
     }
