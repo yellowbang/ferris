@@ -40,7 +40,7 @@ class ColorField extends Component {
 
         return (
             <div className="color-field-container">
-                <span className="number" style={style}>{me.props.color}</span>
+                <span className="label" style={style}>{me.props.label}</span>
                 <input className="bets" onChange={me.onTextChange}/>
                 <input className="total" type='number' value={this.state.total} onChange={me.onTotalChange}/>
             </div>

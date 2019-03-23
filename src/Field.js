@@ -47,6 +47,7 @@ class Field extends Component {
                 <input type="radio" value={this.props.index} checked={this.props.isChecked}
                        onChange={me.onRadioChange}/>
                 <span className="number" style={style}>{me.props.number}</span>
+                <span className="label">{me.props.label}</span>
                 <input className="bets" onChange={me.onTextChange}/>
                 <input className="total" type='number' value={this.state.total} onChange={me.onTotalChange}/>
             </div>
