@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 
-class Field extends Component {
+class ColorField extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -32,10 +32,6 @@ class Field extends Component {
         this.props.onTotalChange(this.props.index, parseInt(input.currentTarget.value) || 0);
     };
 
-    onRadioChange = () => {
-        this.props.onRadioChange(this.props.number);
-    };
-
     render() {
         const me = this;
         const style = {
@@ -43,10 +39,8 @@ class Field extends Component {
         };
 
         return (
-            <div className="field-container">
-                <input type="radio" value={this.props.index} checked={this.props.isChecked}
-                       onChange={me.onRadioChange}/>
-                <span className="number" style={style}>{me.props.number}</span>
+            <div className="color-field-container">
+                <span className="number" style={style}>{me.props.color}</span>
                 <input className="bets" onChange={me.onTextChange}/>
                 <input className="total" type='number' value={this.state.total} onChange={me.onTotalChange}/>
             </div>
@@ -54,4 +48,4 @@ class Field extends Component {
     }
 }
 
-export default Field;
+export default ColorField;

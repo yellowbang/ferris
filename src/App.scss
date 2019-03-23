@@ -1,11 +1,12 @@
 .app {
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
 
     .guest-input {
         display: flex;
         flex-direction: row;
+        padding: 10px;
 
         .guest-input-column {
             flex: 1;
@@ -25,6 +26,18 @@
 
     .bets {
         width: 30vw;
+    }
+
+    .total {
+        width: 60px;
+    }
+}
+
+.color-field-container {
+    width: 30vw;
+
+    .bets {
+        width: 20vw;
     }
 
     .total {
