@@ -5,8 +5,10 @@ import ColorField from './ColorField';
 import './App.scss';
 
 const COLORS = [util.red, util.blue, util.green];
+const COLOR_KEYS = ["red", "blue", "green"];
 const COLOR_LABELS = ["红", "蓝", "绿"];
 const COLOR_INDEXES = [0, 0, 1, 1, 2, 2, 0, 0, 1, 1, 2, 0, 0, 1, 1, 2, 2, 0, 0, 1, 2, 2, 0, 0, 1, 1, 2, 2, 0, 0, 1, 2, 2, 0, 0, 1, 1, 2, 2, 0, 1, 1, 2, 2, 0, 0, 1, 1, 2];
+const ANIMAL_KEYS = ["pig", "dog", "chick", "monkey", "sheep", "house", "snake", "dragon", "rabbit", "tiger", "cow", "mouse"];
 const ANIMAL_LABELS = ["猪", "狗", "鸡", "猴", "羊", "马", "蛇", "龙", "兔", "虎", "牛", "鼠"];
 
 class App extends Component {
@@ -20,6 +22,72 @@ class App extends Component {
             colorInputs: [0, 0, 0],
             animalTotal: 0,
             animalInputs: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            bets:{
+              "1": "0",
+              "2": "0",
+              "3": "0",
+              "4": "0",
+              "5": "0",
+              "6": "0",
+              "7": "0",
+              "8": "0",
+              "9": "0",
+              "10": "0",
+              "11": "0",
+              "12": "0",
+              "13": "0",
+              "14": "0",
+              "15": "0",
+              "16": "0",
+              "17": "0",
+              "18": "0",
+              "19": "0",
+              "20": "0",
+              "21": "0",
+              "22": "0",
+              "23": "0",
+              "24": "0",
+              "25": "0",
+              "26": "0",
+              "27": "0",
+              "28": "0",
+              "29": "0",
+              "30": "0",
+              "31": "0",
+              "32": "0",
+              "33": "0",
+              "34": "0",
+              "35": "0",
+              "36": "0",
+              "37": "0",
+              "38": "0",
+              "39": "0",
+              "40": "0",
+              "41": "0",
+              "42": "0",
+              "43": "0",
+              "44": "0",
+              "45": "0",
+              "46": "0",
+              "47": "0",
+              "48": "0",
+              "49": "0",
+              "red": "0",
+              "blue": "0",
+              "green": "0",
+              "pig": "0",
+              "dog": "0",
+              "chick": "0",
+              "monkey": "0",
+              "sheep": "0",
+              "house": "0",
+              "snake": "0",
+              "dragon": "0",
+              "rabbit": "0",
+              "tiger": "0",
+              "cow": "0",
+              "mouse": "0",
+            },
         };
     }
 
@@ -29,6 +97,24 @@ class App extends Component {
 
     loadData = () => {
         this.setState(JSON.parse(localStorage.lottory));
+    };
+
+    onNumberBetsChange = (index, value) => {
+        let bets = util.duplicate(this.state.bets);
+        bets[index + 1] = value;
+        this.setState({bets});
+    };
+
+    onColorBetsChange = (index, value) => {
+        let bets = util.duplicate(this.state.bets);
+        bets[index] = value;
+        this.setState({bets});
+    };
+
+    onAnimalBetsChange = (index, value) => {
+        let bets = util.duplicate(this.state.bets);
+        bets[index] = value;
+        this.setState({bets});
     };
 
     onNumberTotalChange = (index, value) => {
@@ -53,9 +139,11 @@ class App extends Component {
             <Field
                 key={i}
                 index={i}
+                onBetsChange={me.onNumberBetsChange}
                 onTotalChange={me.onNumberTotalChange}
                 onRadioChange={me.onRadioChange}
                 number={i + 1}
+                bets={me.state.bets[i+1] || ''}
                 label={ANIMAL_LABELS[i % ANIMAL_LABELS.length]}
                 isChecked={this.state.selectedNumber === i + 1}
                 backgroundColor={COLORS[COLOR_INDEXES[i]]}
@@ -64,6 +152,7 @@ class App extends Component {
     };
 
     onColorTotalChange = (index, value) => {
+        index = COLOR_KEYS.indexOf(index);
         let colorInputs = this.state.colorInputs.concat();
         colorInputs[index] = value;
         let colorTotal = colorInputs.reduce((partial_sum, a) => partial_sum + a);
@@ -74,6 +163,7 @@ class App extends Component {
     };
 
     onAnimalTotalChange = (index, value) => {
+        index = ANIMAL_KEYS.indexOf(index);
         let animalInputs = this.state.animalInputs.concat();
         animalInputs[index] = value;
         let animalTotal = animalInputs.reduce((partial_sum, a) => partial_sum + a);
@@ -127,8 +217,10 @@ class App extends Component {
             colorFields.push(
                 <ColorField
                     key={j}
-                    index={j}
+                    index={COLOR_KEYS[j]}
+                    onBetsChange={me.onColorBetsChange}
                     onTotalChange={me.onColorTotalChange}
+                    bets={me.state.bets[COLOR_KEYS[j]] || ''}
                     label={COLOR_LABELS[j]}
                     backgroundColor={COLORS[j]}
                 />
@@ -139,8 +231,10 @@ class App extends Component {
             animalsFields.push(
                 <ColorField
                     key={k}
-                    index={k}
+                    index={ANIMAL_KEYS[k]}
+                    onBetsChange={me.onAnimalBetsChange}
                     onTotalChange={me.onAnimalTotalChange}
+                    bets={me.state.bets[ANIMAL_KEYS[k]] || ''}
                     label={ANIMAL_LABELS[k]}
                 />
             )

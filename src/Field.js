@@ -20,9 +20,9 @@ class Field extends Component {
             sum = input.currentTarget.value.trim().split(' ').reduce((partial_sum, a) => parseInt(partial_sum) + parseInt(a, 10));
         } else if (inputNumbers.length === 1 && parseInt(inputNumbers) && typeof(parseInt(inputNumbers)) === "number") {
             sum = parseInt(inputNumbers);
-            this.props.onBetsChange(this.props.index, inputNumbers);
         }
-        if (typeof(sum) === "number") {
+        this.props.onBetsChange(this.props.index, input.currentTarget.value);
+        if (sum && typeof(sum) === "number") {
             this.props.onTotalChange(this.props.index, sum);
             this.setState({
                 total: sum
@@ -31,9 +31,11 @@ class Field extends Component {
     };
 
     onTotalChange = (input) => {
-        let total = parseInt(input.currentTarget.value) || 0;
-        this.props.onTotalChange(this.props.index, total);
-        this.setState(total);
+        let total = parseInt(input.currentTarget.value) || '';
+        if (typeof(total) === "number") {
+            this.props.onTotalChange(this.props.index, total);
+        }
+        this.setState({total:total});
     };
 
     onRadioChange = () => {
@@ -41,7 +43,11 @@ class Field extends Component {
     };
 
     componentWillReceiveProps(nextProps, nextState) {
-        this.setState({bets:nextProps.bets})
+        const inputNumbers = nextProps.bets.trim().split(' ');
+        this.setState({
+            bets:nextProps.bets,
+            total: inputNumbers.reduce((partial_sum, a) => parseInt(partial_sum) + parseInt(a, 10))
+        })
     }
 
     render() {
@@ -57,7 +63,7 @@ class Field extends Component {
                 <span className="number" style={style}>{me.props.number}</span>
                 <span className="label">{me.props.label}</span>
                 <input className="bets" onChange={me.onTextChange} value={this.state.bets}/>
-                <input className="total" type='number' value={this.state.total} onChange={me.onTotalChange}/>
+                <input className="total" onChange={me.onTotalChange} value={this.state.total}/>
             </div>
         );
     }

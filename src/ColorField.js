@@ -5,6 +5,7 @@ class ColorField extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            bets: props.bets,
             total: 0
         };
     }
@@ -20,7 +21,8 @@ class ColorField extends Component {
         } else if (inputNumbers.length === 1 && parseInt(inputNumbers) && typeof(parseInt(inputNumbers)) === "number") {
             sum = parseInt(inputNumbers);
         }
-        if (typeof(sum) === "number") {
+        this.props.onBetsChange(this.props.index, input.currentTarget.value);
+        if (sum && typeof(sum) === "number") {
             this.props.onTotalChange(this.props.index, sum);
             this.setState({
                 total: sum
@@ -29,8 +31,18 @@ class ColorField extends Component {
     };
 
     onTotalChange = (input) => {
-        this.props.onTotalChange(this.props.index, parseInt(input.currentTarget.value) || 0);
+        let total = parseInt(input.currentTarget.value) || 0;
+        this.props.onTotalChange(this.props.index, total);
+        this.setState(total);
     };
+
+    componentWillReceiveProps(nextProps, nextState) {
+        const inputNumbers = nextProps.bets.trim().split(' ');
+        this.setState({
+            bets:nextProps.bets,
+            total: inputNumbers.reduce((partial_sum, a) => parseInt(partial_sum) + parseInt(a, 10))
+        })
+    }
 
     render() {
         const me = this;
@@ -41,8 +53,8 @@ class ColorField extends Component {
         return (
             <div className="color-field-container">
                 <span className="label" style={style}>{me.props.label}</span>
-                <input className="bets" onChange={me.onTextChange}/>
-                <input className="total" type='number' value={this.state.total} onChange={me.onTotalChange}/>
+                <input className="bets" onChange={me.onTextChange} value={this.state.bets}/>
+                <input className="total" onChange={me.onTotalChange} value={this.state.total}/>
             </div>
         );
     }
