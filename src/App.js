@@ -23,6 +23,14 @@ class App extends Component {
         };
     }
 
+    saveData = () => {
+        localStorage.lottory = JSON.stringify(this.state);
+    };
+
+    loadData = () => {
+        this.setState(JSON.parse(localStorage.lottory));
+    };
+
     onNumberTotalChange = (index, value) => {
         let numberInputs = this.state.numberInputs.concat();
         numberInputs[index] = value;
@@ -79,16 +87,16 @@ class App extends Component {
         const me = this;
         const state = me.state;
         let numberBenefit = state.numberTotal - state.numberInputs[state.selectedNumber - 1] * 44 - state.numberTotal * 0.1 || 0;
-        // (49-4.9 -44)/49
+        // (49 - 4.9 - 44) / 49
         // 0.002
         let colorIndex = COLOR_INDEXES[state.selectedNumber - 1];
         let colorBenefit = state.colorTotal - state.colorInputs[colorIndex] * 2.5 - state.colorTotal * 0.1 || 0;
-        // ( 3 - 2.5 - 0.3 ) /3
-        // 0.067
+        // 32/49 -0.1 - 17/49 * 1.5
+        // 0.03265306122448974
         let payTimes = (state.selectedNumber - 1) % ANIMAL_LABELS.length === 0 ? 9 : 11;
         let animalBenefit = state.animalTotal - state.animalInputs[(state.selectedNumber - 1) % ANIMAL_LABELS.length] * payTimes - state.animalTotal * 0.1 || 0;
         // ( 12 - 11.25 - 1.2 ) /12
-        // 0.067
+        // -0.0375
         return { numberBenefit, colorBenefit, animalBenefit }
     };
 
@@ -143,6 +151,8 @@ class App extends Component {
 
         return (
             <div className="app">
+                <button onClick={me.saveData}>Save</button>
+                <button onClick={me.loadData}>Load</button>
                 <div className="result-header">
                     <div className="header-item">
                         号码总投注: {me.state.numberTotal}
