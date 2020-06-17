@@ -3,6 +3,7 @@ import util from './util';
 import Field from './Field';
 import ColorField from './ColorField';
 import './App.scss';
+import {Helmet} from "react-helmet";
 
 const COLORS = [util.red, util.blue, util.green];
 const COLOR_KEYS = ["red", "blue", "green"];
@@ -245,6 +246,20 @@ class App extends Component {
 
         return (
             <div className="app">
+                <Helmet>
+                    <meta charSet="utf-8"/>
+                    <meta property="og:title" content="Lott | llooll"/>
+                    <meta name="description" property="og:description" content="llooll small group game"/>
+                    <meta property="og:locale" content="en_US"/>
+                    <meta property="og:type" content="website"/>
+                    <meta property="og:site_name" content="llooll"/>
+                    <meta name="image" property="og:image" content="https://game-0823.web.app/favicon.ico"/>
+                    <meta property="og:image:secure_url" content="https://game-0823.web.app/favicon.ico"/>
+                    <meta property="og:image:width" content="250"/>
+                    <meta property="og:image:height" content="200"/>
+                    <meta property="og:image:alt" content="llooll"/>
+                    <link rel="canonical" href="https://game-0823.web.app/"/>
+                </Helmet>
                 <button onClick={me.saveData}>Save</button>
                 <button onClick={me.loadData}>Load</button>
                 <div className="result-header">
