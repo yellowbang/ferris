@@ -1,0 +1,21 @@
+.Birthday20200703 {
+  overflow-y: scroll;
+  height: 100vh;
+
+  .texts-container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("./letter.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    .texts {
+      padding-top: 10rem;
+      padding-left: 4rem;
+      width: 16rem;
+      font-size: 1.3rem;
+      font-family: monospace;
+      line-height: 2.317rem;
+    }
+  }
+}
