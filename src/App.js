@@ -18,7 +18,14 @@ class App extends Component {
 
   render() {
     return (
-      <Birthday20200703/>
+      <Router history={history}>
+        <div className="app">
+          <Switch>
+            <Route exact path="/" component={Ferris}/>
+            <Route exact path="/Birthday20200703" component={Birthday20200703}/>
+          </Switch>
+        </div>
+      </Router>
     );
 
   }
