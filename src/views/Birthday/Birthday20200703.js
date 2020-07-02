@@ -3,10 +3,20 @@ import './Birthday20200703.scss';
 import Audio from './Audio';
 
 class Birthday20200703 extends Component {
+
+  playMusic = () => {
+    const x = document.getElementById("kannikanwo");
+    if (x.paused) {
+      x.play();
+    } else  {
+      x.pause();
+    }
+  }
+
   render() {
 
     return (
-      <div className="Birthday20200703">
+      <div className="Birthday20200703" onClick={this.playMusic}>
         <div className="texts-container">
           <div className="texts">
             Hello 最卑鄙的小肥人，

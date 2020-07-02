@@ -6,7 +6,7 @@ class Audio extends Component {
   render() {
     return (
       <div className="audio-container">
-        <audio src={kannikanwo} controls autoPlay onEnded={this.nextSong}/>
+        <audio id={'kannikanwo'} src={kannikanwo} controls autoPlay onEnded={this.nextSong}/>
       </div>
     );
   }
