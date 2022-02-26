@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import { createBrowserHistory } from "history";
 import './App.scss';
-import Ferris from "./views/Ferris/Ferris";
+import Beibi from "./views/Jojo/Beibi";
 import Birthday20200703 from "./views/Birthday/Birthday20200703";
+import Nova1 from './views/Nova/Nova1';
 
 export const history = createBrowserHistory();
 
@@ -18,14 +19,16 @@ class App extends Component {
 
   render() {
     return (
-      <Router history={history}>
+      <BrowserRouter history={history}>
         <div className="app">
-          <Switch>
-            <Route exact path="/" component={Ferris}/>
-            <Route exact path="/Birthday20200703" component={Birthday20200703}/>
-          </Switch>
+          <Routes>
+            <Route exact path="/" element={<Beibi/>}/>
+            <Route exact path="/beibi" element={<Beibi/>}/>
+            <Route exact path="/Birthday20200703" element={<Birthday20200703/>}/>
+            <Route exact path="/Nova/1" element={<Nova1/>}/>
+          </Routes>
         </div>
-      </Router>
+      </BrowserRouter>
     );
 
   }
