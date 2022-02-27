@@ -2,6 +2,7 @@ import before_born from './before_born.jpeg';
 import new_born from './new_born.jpeg';
 import day_100 from './day_100.jpeg';
 import burp from './burp.jpeg';
+import boss from './boss.jpeg';
 import sleep_bon from './sleep_bon.jpeg';
 import sleep_jojo from './sleep_jojo.jpeg';
 import chair_200 from './chair_200.jpeg';
@@ -10,11 +11,30 @@ import cosplay from './cosplay.jpeg';
 import yellow from './yellow.jpeg';
 import zoo from './zoo.jpeg';
 import sick from './sick.jpeg';
+import all_family from './all_family.jpeg';
+import all2 from './all2.jpeg';
+import one_year from './one_year.jpeg';
 
 export default [
     {
+        src: before_born,
+        descr: '妈妈做紧最后的努力。我地都期待紧你的出现啊。妈妈生你果日痛左成日嘎。心痛啊。',
+    },
+    {
+        src: new_born,
+        descr: 'Welcome to the World。终于见到你啦。我地第一张的全家福。你妈妈几累。',
+    },
+    {
+        src: boss,
+        descr: 'Boyeer 的第一张艺术照。嚣得黎又几得意。你影依张相的时候，我地笑左好耐。太搞笑了。',
+    },
+    {
         src: day_100,
         descr: '终于100日生日啦。好不容易的前3个月，每天都系喂奶，换尿片中不断的循环。都真是不容易啊。',
+    },
+    {
+        src: all_family,
+        descr: '全家福啊。因为有你，全家福更加甜美。因为有你，全家生活有趣又得意',
     },
     {
         src: chair_200,
@@ -41,23 +61,16 @@ export default [
         descr: '第一次全家cosplay。主题系千金大小姐成功追到勤劳车夫，然后生下得意 Boyeer。',
     },
     {
-        src: sleep_bon,
-        descr: '终于可以趁机眠一眠。每个爸爸都会 post 一张同仔仔一起训觉的合照。',
-    },
-    {
-        src: new_born,
-        descr: 'Welcome to the World。终于见到你啦。我地第一张的全家福。你妈妈几累。',
-    },
-    {
-        src: before_born,
-        descr: '妈妈做紧最后的努力。我地都期待紧你的出现啊。',
-    },
-    {
-        src: burp,
-        descr: '你睇你当时几细粒，一手就可以支撑你，帮你 burp',
-    },
-    {
         src: sick,
         descr: '你第一次发烧的样。你嫲嫲好紧张你啊。发烧好啊，有助你未来的健康啊。',
     },
+    {
+        src: one_year,
+        descr: 'Boyeer仔话：“我日头喜欢爸爸多滴，夜晚妈妈才是我的最爱。”',
+    },
+    {
+        src: all2,
+        descr: '第一次全家人影艺术照。希望以后每年都可以影一张。',
+    },
+
 ]
