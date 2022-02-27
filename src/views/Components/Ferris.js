@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Ferris.scss";
 import Audio from "./Audio";
-const PHOTO_SWITCH_DELAY = 25100;
+const PHOTO_SWITCH_DELAY = 10000;
 
 class Ferris extends Component {
   constructor(props) {
@@ -124,7 +124,8 @@ class Ferris extends Component {
       );
     }
 
-    const selectedPhoto = photos[this.state.selectedPhotoIndex % TOTAL_CIRCLE];
+    const reversePhotos = [...photos].reverse();
+    const selectedPhoto = reversePhotos[this.state.selectedPhotoIndex % TOTAL_CIRCLE];
     return (
       <div className="ferris">
         <div className="stars" />
